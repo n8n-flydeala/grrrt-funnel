@@ -1,7 +1,7 @@
 // ── CONFIG ───────────────────────────────────────────────────────────────────
 // Replace this with your n8n webhook URL for the FUNNEL
 // (You can reuse your existing one or create a new workflow)
-const WEBHOOK_URL = "https://flydeala.app.n8n.cloud/webhook/efc5cc4a-63c8-4386-a512-38f216236821";
+const WEBHOOK_URL = "https://flydeala.app.n8n.cloud/webhook-test/6200177c-c66e-4782-8909-1960d6ebf31d";
 
 // ── FORM SUBMIT ───────────────────────────────────────────────────────────────
 const form      = document.getElementById("leadForm");
