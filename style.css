@@ -1,0 +1,397 @@
+/* ── Reset & Base ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:      #C5A572;
+  --gold-dark: #9e8458;
+  --gold-lite: #e5d4b0;
+  --bg:        #0a0a0a;
+  --bg2:       #0f0f0f;
+  --bg3:       #141414;
+  --white:     #ffffff;
+  --gray:      #888888;
+  --lgray:     #bbbbbb;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Utilities ──────────────────────────────────────────── */
+.gold       { color: var(--gold); }
+.gold-text  { color: var(--gold); }
+.hidden     { display: none !important; }
+
+.badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  border: 1px solid rgba(197,165,114,0.35);
+  background: rgba(197,165,114,0.07);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.gold-rule {
+  width: 80px;
+  height: 1px;
+  background: var(--gold-dark);
+  margin: 32px auto;
+}
+
+/* ── HERO SECTION ───────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 60px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-inner {
+  flex: 1;
+  max-width: 560px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  color: var(--lgray);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  margin-bottom: 32px;
+}
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--lgray);
+  margin-bottom: 10px;
+}
+.check {
+  color: var(--gold);
+  font-size: 13px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Form */
+#leadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+#leadForm input {
+  background: #161616;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 14px 18px;
+  color: var(--white);
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.25s;
+  outline: none;
+  width: 100%;
+}
+#leadForm input:focus {
+  border-color: var(--gold);
+}
+#leadForm input::placeholder { color: #555; }
+
+#leadForm button {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.15s;
+  letter-spacing: 0.02em;
+}
+#leadForm button:hover    { background: var(--gold-lite); transform: translateY(-1px); }
+#leadForm button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.error-msg {
+  color: #f87171;
+  font-size: 13px;
+  border: 1px solid rgba(248,113,113,0.3);
+  background: rgba(248,113,113,0.08);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.proof {
+  color: var(--gray);
+  font-size: 12px;
+  margin-top: 14px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Book Mockup ────────────────────────────────────────── */
+.hero-visual {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.book-mockup {
+  width: 200px;
+  height: 290px;
+  background: #0d0d0d;
+  border: 1px solid rgba(197,165,114,0.4);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 16px;
+  box-shadow: 0 24px 60px rgba(197,165,114,0.08);
+  position: relative;
+}
+.book-mockup::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(197,165,114,0.15);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.book-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--gold);
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.book-title span { color: var(--white); }
+.book-sub {
+  font-size: 10px;
+  color: var(--gray);
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+.book-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #000;
+  background: var(--gold);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+.wealth-quote {
+  color: var(--gold-dark);
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+  max-width: 200px;
+}
+
+/* ── AUTHOR SECTION ─────────────────────────────────────── */
+.author {
+  background: var(--bg2);
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 60px 40px;
+}
+.author-inner {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+.author h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.author p {
+  color: var(--lgray);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+.verse {
+  color: var(--gold-dark) !important;
+  font-style: italic;
+  font-size: 13px !important;
+}
+
+/* ── THANK YOU PAGE ─────────────────────────────────────── */
+.thankyou-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+.ty-inner {
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+}
+
+.ty-symbol {
+  font-size: 40px;
+  color: var(--gold);
+  margin-bottom: 16px;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+.thankyou-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.ty-sub {
+  color: var(--lgray);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Upsell box */
+.upsell-box {
+  background: #111;
+  border: 1px solid rgba(197,165,114,0.2);
+  border-radius: 16px;
+  padding: 36px 32px;
+  text-align: center;
+}
+.upsell-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.upsell-box h2 {
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.upsell-sub {
+  color: var(--lgray);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* upsell book mockup */
+.upsell-book {
+  width: 160px;
+  height: 230px;
+  margin: 0 auto 28px;
+}
+.upsell-book .book-title { font-size: 22px; }
+
+/* CTA button */
+.lux-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s;
+  margin-bottom: 14px;
+}
+.lux-btn:hover { background: var(--gold-lite); transform: translateY(-1px); }
+
+.upsell-note {
+  color: var(--gray);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 28px;
+  color: var(--gray);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--gold); }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer {
+  padding: 32px 24px;
+  text-align: center;
+  border-top: 1px solid #1a1a1a;
+}
+footer .gold-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 6px;
+}
+footer p:last-child {
+  color: var(--gray);
+  font-size: 12px;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    gap: 40px;
+    padding: 48px 24px;
+    text-align: center;
+  }
+  .hero-inner { max-width: 100%; }
+  .sub        { margin: 0 auto 28px; }
+  .checklist li { justify-content: center; }
+  .hero-visual { order: -1; }
+  .book-mockup { width: 160px; height: 230px; }
+  .book-title  { font-size: 22px; }
+  .upsell-box  { padding: 28px 20px; }
+}
